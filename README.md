@@ -37,6 +37,11 @@
   English | <a href="docs/i18n/README.zh-CN.md">简体中文</a> | <a href="docs/i18n/README.ja-JP.md">日本語</a> | <a href="docs/i18n/README.ko-KR.md">한국어</a> | <a href="docs/i18n/README.ru-RU.md">Русский</a>
 </p>
 
+<!-- fork 说明 -->
+> **🍴 Fork Note**: This is a fork by [@cyberspace-cs](https://github.com/cyberspace-cs).
+> We've contributed **2 new rule sets** to the upstream repo, expanding review coverage to LLM security and architecture consistency.
+> See [Our Contributions](#-our-contributions) below.
+
 ---
 
 ## What is Open Code Review?
@@ -198,6 +203,26 @@ This project exists thanks to all the people who contribute. See [CONTRIBUTING.m
 <a href="https://github.com/alibaba/open-code-review/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=alibaba/open-code-review" />
 </a>
+
+<a id="our-contributions"></a>
+
+## 🤝 Our Contributions
+
+This fork by [@cyberspace-cs](https://github.com/cyberspace-cs) adds **2 new rule sets** to expand review coverage:
+
+| # | Rule Set | What it checks | PR |
+|---|----------|----------------|-----|
+| 1 | **LLM Security Rules** | Prompt injection, unsafe LLM output, agent tool security, sensitive data leakage | [#1453](https://github.com/alibaba/open-code-review/pull/1453) |
+| 2 | **Architecture Consistency Rules** | Dependency direction, boundary leakage, circular dependencies, single responsibility, abstraction level mismatch | [#1456](https://github.com/alibaba/open-code-review/pull/1456) |
+
+### Architecture value
+
+These rules extend OCR from **code quality review** to **system health review**:
+
+- **LLM Security**: Now that every app has an LLM layer, OCR can review the LLM-specific attack surface (prompt injection, tool abuse, data leakage)
+- **Architecture Consistency**: OCR now checks not just "is this code well-written" but "does this code follow the system's architecture"
+
+Both rule sets follow the existing OCR rule format and are registered in `system_rules.json` with path-based filtering.
 
 ## License
 
